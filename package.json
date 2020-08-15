@@ -1,12 +1,12 @@
 {
   "name": "reddit-download",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "src/index.ts",
   "scripts": {
     "build": "tsc",
-    "postinstall": "pnpm install && pnpm run build",
+    "prepare": "pnpm run build",
     "test": "pnpx jest",
     "coverage": "pnpx jest --coverage"
   },

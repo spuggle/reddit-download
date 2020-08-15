@@ -23,7 +23,6 @@ test(`Extract JSON Link`, () => {
 
 test(`Fetch JSON`, async () => {
   const fetchedJSON = await fetchJSON(EXPECTED_JSON_LINK);
-  console.log(fetchedJSON[0].data.children[0].data.secure_media);
 
   expect(fetchedJSON)
     .toBeTruthy();
@@ -44,9 +43,8 @@ test(`Make Audio URL`, () => {
     .toBe(EXPECTED_AUDIO_URL);
 });
 
-test(`Dowload Audio and Video files`, async () => {
+test(`Download and merge Audio and Video files`, async () => {
   const fileCode = await downloadVideo(REDDIT_LINK);
-  console.log(`File Code:`, fileCode);
 
   expect(fileCode)
     .toBeTruthy();
@@ -54,7 +52,6 @@ test(`Dowload Audio and Video files`, async () => {
 
 test(`Path`, () => {
   const outputFilename = sanitizeFilename(POST_NAME);
-  console.log(outputFilename);
 
   expect(outputFilename)
     .toBe(OUTPUT_FILENAME);

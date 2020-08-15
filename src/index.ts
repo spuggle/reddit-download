@@ -85,7 +85,9 @@ function mergeMedia(fileCode: string, outputFilename: string) {
 
 	const ffmpegArgs = `ffmpeg -i ${fallbackFile} -i ${audioFile} -c:v copy -c:a aac ${videoFile}`;
 
-	return execSync(ffmpegArgs);
+  execSync(ffmpegArgs);
+
+  return fs.createReadStream(videoFile);
 }
 
 function randomCode(): string {

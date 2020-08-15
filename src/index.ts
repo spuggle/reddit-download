@@ -2,7 +2,7 @@ import got from "got";
 import * as fs from "fs";
 import { join } from "path";
 import * as stream from "stream";
-import { exec } from "child_process";
+import { execSync } from "child_process";
 import { promisify } from "util";
 
 const rootDir = join(__dirname, `../`);
@@ -74,7 +74,7 @@ async function downloadMedia(
   );
 }
 
-async function mergeMedia(fileCode: string, outputFilename: string) {
+function mergeMedia(fileCode: string, outputFilename: string) {
   const audioFile = mediaFilePath(fileCode, `audio`);
 	const fallbackFile = mediaFilePath(fileCode, `fallback`);
 	const videoFile = mediaFilePath(
@@ -85,12 +85,7 @@ async function mergeMedia(fileCode: string, outputFilename: string) {
 
 	const ffmpegArgs = `ffmpeg -i ${fallbackFile} -i ${audioFile} -c:v copy -c:a aac ${videoFile}`;
 
-	return new Promise((res, rej) => {
-		exec(ffmpegArgs, (err, stdout, stderr) => {
-			if (err || stderr) return rej(err || stderr);
-			else return res(stdout);
-		});
-	});
+	return execSync(ffmpegArgs);
 }
 
 function randomCode(): string {

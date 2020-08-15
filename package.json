@@ -1,9 +1,10 @@
 {
-  "name": "jesttest",
+  "name": "reddit-download",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "pnpx jest",
     "coverage": "pnpx jest --coverage"
   },

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "declaration": true,
     "lib": [
       "es5",
       "es6",
@@ -13,6 +14,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": false,
+    "rootDir": "./src",
     "outDir": "./dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
